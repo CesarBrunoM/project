@@ -1,7 +1,12 @@
-from comunidadeimpressionadora import database
+from comunidadeimpressionadora import database, login_manager
 from datetime import datetime
+from flask_login import UserMixin
 
-class Usuarios(database.Model):
+@login_manager.user_loader
+def load_usuario(id_usuario):
+    return Usuarios.query.get(int(id_usuario))
+
+class Usuarios(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
     username = database.Column(database.String(100), nullable=False)
     email = database.Column(database.String(200), nullable=False, unique=True)
