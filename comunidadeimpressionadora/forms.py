@@ -14,7 +14,7 @@ class FormCriarConta(FlaskForm):
     def validate_email(self, email):
         usuario = Usuarios.query.filter_by(email=email.data).first()
         if usuario:
-            raise ValidationError('Já existe um usuário com este e-mail.')
+            raise ValidationError('Já existe um usuário com este email.')
 
 
 class FormLogin(FlaskForm):
