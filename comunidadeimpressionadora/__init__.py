@@ -11,5 +11,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:ROOT@localhost/com
 bcrypt = Bcrypt(app)
 database = SQLAlchemy(app)
 login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+login_manager.login_message = 'Necessário esta logado para acessar a pagina.'
+login_manager.login_message_category = 'alert-info'
 
 from comunidadeimpressionadora import routes
