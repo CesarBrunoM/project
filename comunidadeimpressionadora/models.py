@@ -11,7 +11,7 @@ class Usuarios(database.Model, UserMixin):
     username = database.Column(database.String(100), nullable=False)
     email = database.Column(database.String(200), nullable=False, unique=True)
     senha = database.Column(database.String(300), nullable=False)
-    foto_perfil = database.Column(database.String(200), default='default.jpg')
+    foto_perfil = database.Column(database.String(200), default='default.png')
     cursos = database.Column(database.String(300), nullable=False, default='Não informado')
     #post = database.relationship('Post', backref='autor', lazy=True)
 
